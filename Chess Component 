@@ -5806,7 +5806,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 2,
       "metadata": {
         "id": "5tln5XYJe_XE"
       },
@@ -5816,7 +5816,6 @@
         "    uci_move_strings = [move.uci() for move in legal_moves_list]\n",
         "    ind = ToIndex(uci_move_strings)\n",
         "\n",
-        "    # Ensure mask is on the same device as the input tensor\n",
         "    mask = T.zeros(4096, dtype=T.bool, device=board_tensor_input.device)\n",
         "    mask[ind] = True\n",
         "\n",
@@ -5839,10 +5838,9 @@
         "\n",
         "  legal_moves = list(board.legal_moves)\n",
         "\n",
-        "  # For inference, return_logits is False (default)\n",
+        "\n",
         "  move_uci = ModelPick(board_tensors, legal_moves)\n",
-        "  board.push(chess.Move.from_uci(move_uci))\n",
-        "  return board # Return the updated board for the interactive game"
+        "  board.push(chess.Move.from_uci(move_uci))"
       ]
     },
     {
@@ -6033,7 +6031,7 @@
       "provenance": [],
       "gpuType": "T4",
       "mount_file_id": "1IcYXDg9BKt3aiDANL7WZAFFySbjxPGzg",
-      "authorship_tag": "ABX9TyP8W6ObFOhseimb7S9jAWjn",
+      "authorship_tag": "ABX9TyOJqecqwzcE/FCANc+ZVq5r",
       "include_colab_link": true
     },
     "kernelspec": {
